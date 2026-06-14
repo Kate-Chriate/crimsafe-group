@@ -1,0 +1,119 @@
+  @import url("https://use.typekit.net/fyv4uyw.css");
+
+
+body,
+html {
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  font-family: "articulat-cf", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color:$white;
+  background-color: $darkblue;
+}
+
+p{
+  font-size:15px;
+  line-height:1.5em;
+  letter-spacing:.05em;
+  .large &, &.large{
+    font-size: 17px;
+    line-height:1.4em;
+  }
+  .medium &, &.medium{
+    font-size: 16px;
+    line-height:1.6em;
+  }
+  .bold &,&.bold{
+     font-weight:600;
+  }
+  .orange &,&.orange{
+     color:$orange;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: 16px;
+    .medium &, &.medium{
+      font-size: 18px;
+    
+      line-height:1.6em;
+    }
+    .large &, &.large{
+      font-size: 22px;
+    
+      line-height:1.4em;
+    }
+  }
+}
+
+
+h1{
+  font-size: clamp(28px, calc(100vw * 70 / 1920), 70px);
+  line-height:1.1em;
+  letter-spacing:0.1em;
+  font-weight:800;
+  text-transform:uppercase;
+  &.number-stats__number{
+    letter-spacing: 0em;
+  }
+}
+
+
+
+h2{
+  font-size: clamp(20px, calc(100vw * 40 / 1920), 40px);
+  line-height:1.2em; 
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+}
+
+h3, .h3{
+  font-size: clamp(18px, calc(100vw * 38 / 1920), 38px);
+  line-height:1.4em;
+  letter-spacing:.05em;
+  font-weight:800;
+  
+}
+
+h4{
+  font-size: clamp(18px, calc(100vw * 20 / 1920), 20px);
+  line-height:1.4em;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  margin-bottom:1em;
+  font-weight:600;
+  &.orange{
+    color:$orange;
+  }
+}
+
+.team-label{
+  font-size:11px;
+  text-transform:uppercase;
+  font-weight:500;
+  letter-spacing:0.1em;
+  @include media-breakpoint-down(sm) {
+      font-size:8px;
+      
+    }
+}
+
+.pagination-text{
+  font-size:15px;
+  text-transform:uppercase;
+  font-weight:500;
+  letter-spacing:0.1em;
+}
+
+.legal-links{
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:0.05em;
+  @include media-breakpoint-down(sm) {
+      font-size:8px;
+      
+    }
+}
+

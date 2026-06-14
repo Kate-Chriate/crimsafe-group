@@ -1,0 +1,68 @@
+.column-card{
+    background-color:$white;
+    border-radius:20px;
+    margin: 0 0 20px 0;
+    color:$darkblue;
+    height: 100%;
+    img{
+        width:70%;
+        @include media-breakpoint-up(lg) {
+            width:50%;
+        }
+    }
+    .btn{
+        padding:0;
+        justify-content: space-between;
+        align-items: center;
+        display: flex !important;
+        &:hover{
+            background-color: transparent;
+            color:$orange;
+            svg path{
+                fill:$orange;
+            }
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        border-radius:30px;
+    }
+}
+
+// Desktop: restore 3-column grid layout (override Splide CDN stylesheet)
+.three-col-cards-splide {
+    // Equal height cards in slider mode
+    .splide__list {
+        align-items: stretch;
+        
+    }
+
+    .splide__slide {
+        height: auto !important;
+        display: flex;
+    }
+
+    @include media-breakpoint-up(xl) {
+        .splide__track {
+            overflow: visible;
+        }
+
+        .splide__list {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+                --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    
+            //gap: 1.5rem;
+        }
+
+        .splide__slide {
+            padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-bottom:1.5em;
+            //flex: 1 1 0;
+            //min-width: 0;
+            //width: auto !important;
+        }
+    }
+}

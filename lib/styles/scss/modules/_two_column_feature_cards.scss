@@ -1,0 +1,102 @@
+.feature-card{
+    position: relative;
+    background-color:$white;
+    border:2px solid $blue;
+    border-radius:30px;
+    margin: 0 0 20px 0;
+    color:$darkblue;
+    padding-bottom:5em !important;
+    @include media-breakpoint-up(lg) {
+        padding-bottom:8em !important;
+    }
+    
+    //height: 100%;
+    img{
+        width:70%;
+        @include media-breakpoint-up(lg) {
+            width:50%;
+        }
+    }
+    .btn{
+        width:100%;
+        background-color:$blue;
+        position:absolute;
+        bottom:0;
+        left:0;
+        border-radius:0 0 28px 28px;
+        overflow: hidden;
+        padding: 1.5rem 1.5rem;
+        .btn__inner{
+            position: relative;
+            z-index: 1;
+            svg path{
+                fill:$white;
+            }
+        }
+        &:after{
+            content:'';
+            position:absolute;
+            top:0;
+            right:0;
+            height:100%;
+            width:28%;
+             transition:all 0.3s ease-in-out;
+            background-color:$darkblue;
+            clip-path: polygon(2.5rem 0, 100% 0, 100% 100%, 0 100%);
+
+        }
+         @include media-breakpoint-up(lg) {
+             padding: 1.5rem 3rem;
+             &:hover{
+                color:$darkblue;
+                &:after{
+                width:38%;
+                transition:all 0.3s ease-in-out;
+
+                }
+             }
+        }
+    
+    }
+}
+
+.feature-card-col:nth-child(2n){
+    .feature-card{
+        border:2px solid $orange !important;
+        .btn{
+            background-color:$orange;
+        }
+    }
+}
+
+// Desktop: restore 2-column grid layout (override Splide CDN stylesheet)
+.two-col-feature-splide {
+    // Equal height cards in slider mode
+    .splide__list {
+        align-items: stretch;
+    }
+
+    .splide__slide {
+        height: auto !important;
+        display: flex;
+    }
+
+    @include media-breakpoint-up(xl) {
+        .splide__track {
+            overflow: visible;
+        }
+
+        .splide__list {
+            //display: flex;
+            //flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        .splide__slide {
+            flex: 1 1 0;
+            min-width: 0;
+            width: auto !important;
+        }
+    }
+}

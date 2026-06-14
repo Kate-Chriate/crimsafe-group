@@ -1,0 +1,50 @@
+.count-stats-section{
+    position:relative;
+    .count-stats-back{
+        opacity:.15;
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        z-index:-1;
+        object-position: center center;
+    }
+}
+
+.number-stats_item{
+    color:$orange;
+    border:2px solid $orange;
+    aspect-ratio:1/1;
+    width:100%;
+    height:100%;
+    border-radius:100%;
+    padding:0 1em 1em 1em;
+}
+.number-stats__label{
+    max-width:180px;
+    line-height:1.1em;
+}
+
+// Desktop: restore original centred flex row (override Splide CDN stylesheet)
+.number-stats-splide {
+    @include media-breakpoint-up(lg) {
+        .splide__track {
+            overflow: visible;
+        }
+
+        .splide__list {
+            //display: flex;
+            //flex-wrap: wrap;
+            //justify-content: center;
+            //align-items: center;
+            gap: 2rem;
+        }
+
+        .splide__slide {
+            //flex: 0 0 auto;
+            //width: auto !important;
+        }
+    }
+}

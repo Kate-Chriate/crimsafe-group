@@ -1,0 +1,26 @@
+$white : #ffffff !default;
+$black : #000000 !default;
+$green: #68653C; 
+$maroon: #410014; 
+$cream : #F7F5F0; 
+$light-blue : #F0F3F6;
+
+$dark-grey : #D5D6D2;
+
+
+$grey : #EFEFEF;
+$orange: #F18A00;
+$blue : #00B6EC;
+$darkblue: #141C2C; 
+
+$grid-breakpoints: (
+  xs: 0,
+  tn: 355px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1920px,
+) !default;
+

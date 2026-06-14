@@ -1,0 +1,47 @@
+$sm: 414px; // Mobile
+$md: 768px; // Tablet - Portrait
+$lg: 1024px; // Tablet - Landscape
+$xl: 1440px; // Large Desktop
+$xxl: 1920px; // Larger Desktop
+
+@mixin breakpoint($direction, $size) {
+  @if $size== "sm" {
+    $size: $sm;
+  } @else if $size== "md" {
+    $size: $md;
+  } @else if $size== "lg" {
+    $size: $lg;
+  } @else if $size== "xl" {
+    $size: $xl;
+  } @else if $size== "xxl" {
+    $size: $xxl;
+  }
+
+  @if $direction== "up" {
+    $direction: "min-width";
+  } @else if $direction== "down" {
+    $direction: "max-width";
+    $size: $size - 1;
+  }
+
+  @media ($direction: $size) {
+    @content;
+  }
+}
+
+@function clamp-calc(
+  $min-width,
+  $max-width,
+  $size-at-min-width,
+  $size-at-max-width
+) {
+  $slope: ($size-at-max-width - $size-at-min-width) / ($max-width - $min-width);
+  $y-axis-intersection: -1 * $min-width * $slope + $size-at-min-width;
+  $return-value: clamp(
+    #{$size-at-min-width},
+    #{$y-axis-intersection} + #{$slope} * 100vw,
+    #{$size-at-max-width}
+  );
+  @return $return-value;
+}
+

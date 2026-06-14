@@ -1,0 +1,363 @@
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background-color:transparent;
+    color: $white;
+    &.scrolled{
+        background: $darkblue;
+        box-shadow: 0px 0px 6px #000000;
+        transition:all 0.3s ease-in-out;
+    }
+
+    .site-header__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        height: 80px;
+    }
+
+    .site-header__logo {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        text-decoration: none;
+        color: $white;
+
+        img {
+            max-height: 48px;
+            width: auto;
+        }
+    }
+}
+
+// ── Desktop nav ──────────────────────────────────────────────────────────────
+
+.main-nav {
+    @include media-breakpoint-down(lg) { display: none; }
+
+    .main-nav__list {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 3rem;
+
+        > .menu-item {
+            position: static;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            > a {
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                font-size:15px;
+                padding: 0;
+                color: $white;
+                text-decoration: none;
+                font-weight: 600;
+                white-space: nowrap;
+                transition: opacity 0.15s;
+                border-bottom: 1px solid transparent;
+
+                svg { transition: transform 0.2s ease; }
+
+                &:hover {
+                    color: $orange;
+                    border-bottom: 1px solid $orange;
+                    transition: all 0.3s ease-in-out;
+                }
+                
+            }
+             @include media-breakpoint-up(lg) { 
+                &.contact a{
+                    color:$orange;
+                    border:1px solid $orange;
+                    border-radius: 30px;
+                    padding:.5em 1.8em;
+                    &:hover{
+                        background-color:$orange;
+                        color:$white;
+                    }
+                }
+            }
+
+            &.current_page_item a{
+                color: $orange;
+            }
+
+            &[aria-expanded="true"] > a svg { transform: rotate(180deg); }
+
+            // ── Mega menu panel ───────────────────────────────────────────
+
+            > .sub-menu {
+                display: none;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                 @include media-breakpoint-up(lg) { 
+                    background: #121824;
+                 }
+                color: $white;
+                //box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+                list-style: none;
+                margin: 0;
+                padding: 2.5rem;
+                flex-wrap: wrap;
+                gap: 2rem;
+                z-index:299;
+                li{
+                    display:table;
+                    clear: both;
+                }
+
+                &.is-open { display: flex; }
+
+                .mega-menu__close {
+                    position: absolute;
+                    top: 1rem;
+                    right: 1rem;
+                    background: none;
+                    border: none;
+                    color: $white;
+                    cursor: pointer;
+                    padding: 0.25rem;
+                    line-height: 1;
+                    opacity: 0.7;
+                    transition: opacity 0.15s;
+                    z-index: 1;
+
+                    @include media-breakpoint-down(lg) { display: none; }
+
+                    &:hover { opacity: 1; }
+                }
+
+                > .mega-menu__image-col {
+                    flex: 0 0 260px;
+                    max-width: 260px;
+                    align-self: stretch;
+                    list-style: none;
+
+                    @include media-breakpoint-down(lg) { display: none; }
+
+                    .mega-menu__image-wrap {
+                        height: 100%;
+                        aspect-ratio:5/3;
+                        object-fit: cover;
+                        min-height: 200px;
+                        overflow: hidden;
+                    }
+
+                    .mega-menu__image {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                        transition: opacity 0.15s ease;
+
+                        &.is-fading { opacity: 0; }
+                    }
+                }
+
+                > .menu-item {
+                    flex: 1 1 auto;
+                 
+
+                    > a {
+                        display: inline-block;
+                        
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        letter-spacing: 0.1em;
+                        color: $white;
+                        text-decoration: none;
+                        padding-bottom: 0.5rem;
+                        margin-bottom: 0.5rem;
+
+                        &:hover { color: $orange; }
+                    }
+
+                    // Third-level items
+                    .sub-menu {
+                        position: static;
+                        display: block;
+                        text-transform: uppercase;
+                        box-shadow: none;
+                        padding: 0;
+                        list-style: none;
+                        margin: 0;
+                         letter-spacing: 0.1em;
+
+                        .menu-item a {
+                            display: inline-block;
+                            
+                            padding: 0.3rem 0;
+                            color: $white;
+                            text-decoration: none;
+                            opacity: 0.8;
+
+                            &:hover {
+                                opacity: 1;
+                                color: $orange;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ── Overlay ───────────────────────────────────────────────────────────────────
+
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+
+    &.is-visible {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+// ── Hamburger ─────────────────────────────────────────────────────────────────
+
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    color: $white;
+    cursor: pointer;
+    padding: 8px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 220;
+
+    @include media-breakpoint-down(lg) { display: flex; }
+
+    span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: currentColor;
+        border-radius: 2px;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    &[aria-expanded="true"] {
+        span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        span:nth-child(2) { opacity: 0; }
+        span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+}
+
+// ── Mobile drawer ─────────────────────────────────────────────────────────────
+
+@include media-breakpoint-down(lg) {
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(340px, 100vw);
+        height: 100vh;
+        background: $darkblue;
+        color: $white;
+        z-index: 210;
+        overflow-y: auto;
+        transition: right 0.3s ease;
+        padding: 100px 1.5rem 2rem;
+
+        &.is-open {
+            display: block;
+            right: 0;
+        }
+
+        .main-nav__list {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+
+            > .menu-item {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+                > a {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0.875rem 0;
+                }
+
+                > .sub-menu {
+                    flex: 0 0 100%;
+                    position: static;
+                    display: none;
+                    flex-direction: column;
+                    padding: 0.75rem 1rem 1rem;
+                    box-shadow: none;
+                    gap: 0;
+                     text-transform: uppercase;
+
+                    &.is-open { display: flex; }
+
+                    > .menu-item {
+                        flex: none;
+
+                        > a {
+                            color: $white;
+                           
+                            border-bottom: none;
+                            //text-transform: none;
+                            letter-spacing: 0;
+                            font-weight: 600;
+                            padding: 0.5rem 0;
+                            margin-bottom: 0;
+                        }
+
+                        .sub-menu .menu-item a {
+                            color: rgba(255, 255, 255, 0.7);
+                            padding: 0.25rem 0.75rem;
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.btn.header {
+    position: fixed;
+    top: 0;
+    right: 4.5vw;
+    z-index: 100;
+
+    @include media-breakpoint-down(md) {
+        transform: rotate(90deg) translateY(-82px);
+        right: 0;
+        top: 76vh;
+        opacity: 0;
+
+        &.scrolled { opacity: 1; }
+    }
+}

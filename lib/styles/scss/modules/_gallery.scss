@@ -1,0 +1,48 @@
+.gallery-splide {
+    .splide__slide {
+        aspect-ratio: 4 / 3;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+   
+}
+
+/* .logo-splide {
+    .splide__slide {
+        &.logo{
+            img{
+                height:80px;
+                width:auto;
+            }
+        }
+    }
+   
+} */
+ .gallery-splide-block{
+    .splide__slide{
+        height:100%;
+        @include media-breakpoint-up(lg) {
+        img{
+              position:absolute;
+        }
+        }
+       
+    }
+ }
+
+.splide__list{
+    align-items: center;
+}
+
+.splide__arrow{
+    background: transparent !important;
+    svg{
+        fill:$white !important;
+    }
+}
+
+

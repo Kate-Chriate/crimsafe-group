@@ -1,0 +1,36 @@
+.text_with_icon_list{
+    position:relative;
+    &:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;            /* Pins the image layer to the left edge */
+        height: 62%;
+        width: 100%;
+        background-image:url('../../images/texture.png');
+        background-size: contain;
+        background-position: top left;
+        background-repeat:no-repeat;
+        opacity: 0.1; /* Set your transparency here (0.0 to 1.0) */
+        z-index: -1;  /* Places the image layer behind your text */ 
+        @include media-breakpoint-up(lg) {
+            width: 44%;
+        }
+    }
+    
+}
+
+.text-icon-list__item{
+    padding:2em 0;
+    row-gap:3.8em;
+    &:first-of-type{
+        padding-top:0;
+    }
+    img{
+        width:60px;
+    }
+     @include media-breakpoint-up(lg) {
+        padding:4em 0;
+        border-bottom:1px solid $grey;
+     }
+}
