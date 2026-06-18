@@ -18,6 +18,7 @@
             },
             "choices": {
                 "simple": "Simple - Background Image",
+                "gallery": "Featured - Single Gallery",
                 "grid": "Grid - Image Gallery"
             },
             "default_value": false,
@@ -141,11 +142,11 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_6a20d31cc4ec0",
-            "label": "Hero Grid",
-            "name": "",
+            "key": "field_6a20d6f818471",
+            "label": "Grid Images",
+            "name": "grid_images",
             "aria-label": "",
-            "type": "message",
+            "type": "gallery",
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -162,9 +163,55 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Edit the hero grid option globally under Global Setting > Hero Grid",
-            "new_lines": "wpautop",
-            "esc_html": 0
+            "return_format": "array",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "insert": "append",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_6a33457e5f9eb",
+            "label": "Gallery Images",
+            "name": "gallery_images",
+            "aria-label": "",
+            "type": "gallery",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a20c044362a5",
+                        "operator": "==",
+                        "value": "gallery"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "insert": "append",
+            "preview_size": "medium"
         }
     ],
     "location": [
@@ -200,5 +247,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1780540311
+    "modified": 1781745039
 }

@@ -15,7 +15,7 @@
 <section id="<?php echo $module_id; ?>" class="<?php echo get_row_layout(); ?><?php if($padding_top) { echo ' padding-top';} if($padding_bottom) { echo ' padding-bottom';} ?>">
     <div class="container">
         <div class="row g-0">
-            <div class="col-12 col-lg-5 col-xxl-4 large orange bold mb-5 mb-lg-0">
+            <div class="col-12 col-lg-5 col-xxl-4 large bold mb-5 mb-lg-0">
                 <?php if($title) {?> <h2 class="mb-70"><?php echo $title; ?></h2> <?php } ?>
                 <?php if($copy) { echo $copy; } ?>
             </div>
@@ -41,7 +41,7 @@
                                         <div class="<?php if ($count == 1) { echo 'col-10'; } else { echo 'col-10 col-lg-4'; } ?>">
                                             <h4 class="orange mb-0"><?php echo $label; ?></h4>
 
-                                            <?php if($text) { ?><p class="text-icon-list__text mb-0 mt-3"><?php echo $text; ?></p> <?php } ?>
+                                            <?php if($text) { ?><p class="text-icon-list__text mb-0 mt-2"><?php echo $text; ?></p> <?php } ?>
                                         </div>
                                     
                                     <?php endwhile; ?>

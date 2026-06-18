@@ -3,12 +3,13 @@
     $title = get_sub_field('title');
     $text = get_sub_field('text');
     $module_id = get_sub_field('module_id');
+    $background_colour = get_sub_field('section_background_colour');
     $padding = get_sub_field('padding');
         $padding_top = $padding['padding_top'];
         $padding_bottom = $padding['padding_bottom'];
 ?>
 
-<section id="<?php echo $module_id; ?>" class="<?php echo get_row_layout(); ?><?php if($padding_top) { echo ' padding-top';} if($padding_bottom) { echo ' padding-bottom';} ?> bg-white">
+<section id="<?php echo $module_id; ?>" class="<?php echo get_row_layout(); ?> bg-<?php echo $background_colour; ?><?php if($padding_top) { echo ' padding-top';} if($padding_bottom) { echo ' padding-bottom';} ?>">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 text-center">
@@ -21,7 +22,7 @@
             <div class="splide__track">
                 <ul class="splide__list">
                     <?php foreach( $gallery as $image ): ?>
-                        <li class="splide__slide logo">
+                        <li class="splide__slide logo bg-<?php echo $background_colour; ?>">
                             <img src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                         </li>
                     <?php endforeach; ?>

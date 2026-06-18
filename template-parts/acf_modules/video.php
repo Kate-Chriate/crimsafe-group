@@ -15,7 +15,7 @@
         <div class="row justify-content-center g-0">
             <div class="col-12">
                 <div class="video-player" data-type="<?php echo esc_attr($media_type); ?>">
-                    <?php echo file_get_contents(get_template_directory_uri() . '/lib/images/play.svg'); ?>
+                    <?php echo file_get_contents(get_template_directory() . '/lib/images/play.svg'); ?>
                     <button class="video-pause-btn" aria-label="Pause video"><span></span><span></span></button>
 
                     <?php if($media_type == 'video' && !empty($video_mp4)): ?>

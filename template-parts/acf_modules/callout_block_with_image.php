@@ -27,12 +27,13 @@
                 <div class="cta-module__content h-100 p-70 large">
                    <?php if($title) {?> <h2 class="mb-70"><?php echo $title; ?></h2> <?php } ?>
                     <?php if($copy) { echo $copy; } ?>
+                    <?php /* if(str_ends_with(strtolower(parse_url($button['url'], PHP_URL_PATH) ?? ''), '.pdf')) { echo ' btn--download'; } */ ?>
                     <?php if( $button ): ?>
-                        <a href="<?php echo esc_url($button['url']); ?>" target="_blank" class="btn btn--primary mt-3 d-inline-block<?php if(str_ends_with(strtolower(parse_url($button['url'], PHP_URL_PATH) ?? ''), '.pdf')) { echo ' btn--download'; } ?>"><?php echo esc_html($button['title']); ?> &nbsp; <?php echo file_get_contents(get_template_directory_uri() . '/lib/images/arrow.svg'); ?></a>
+                        <a href="<?php echo esc_url($button['url']); ?>" target="_blank" class="btn btn--primary mt-3 d-inline-block btn--download"><?php echo esc_html($button['title']); ?> &nbsp; <?php echo file_get_contents(get_template_directory() . '/lib/images/arrow.svg'); ?></a>
                     <?php endif; ?>
                     <?php if( $button_2 ): ?>
                         <br/>
-                        <a href="<?php echo esc_url($button_2['url']); ?>" target="_blank" class="btn btn--primary mt-3 d-inline-block<?php if(str_ends_with(strtolower(parse_url($button_2['url'], PHP_URL_PATH) ?? ''), '.pdf')) { echo ' btn--download'; } ?>"><?php echo esc_html($button_2['title']); ?> &nbsp; <?php echo file_get_contents(get_template_directory_uri() . '/lib/images/arrow.svg'); ?></a>
+                        <a href="<?php echo esc_url($button_2['url']); ?>" target="_blank" class="btn btn--primary mt-3 d-inline-block"><?php echo esc_html($button_2['title']); ?> &nbsp; <?php echo file_get_contents(get_template_directory() . '/lib/images/arrow.svg'); ?></a>
                     <?php endif; ?>
                 </div>
             </div>

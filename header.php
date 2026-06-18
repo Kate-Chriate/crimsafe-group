@@ -15,8 +15,11 @@
   }
   ?>
 
-<?php $header_logo = get_field('header_logo', 'option'); ?>
-  <header class="site-header">
+<?php 
+  $header_logo = get_field('header_logo', 'option'); 
+  $nav_hover = get_field('navigation_hover_colour', 'option');
+?>
+  <header class="site-header hover-<?php echo $nav_hover; ?>">
     <div class="container site-header__inner">
 
       <a href="<?php echo esc_url(home_url('/')); ?>" class="site-header__logo">
@@ -38,7 +41,7 @@
 
       <?php $button = get_field('header_button', 'option'); ?>
       <?php if ($button): ?>
-        <a href="<?php echo esc_url($button['url']); ?>" target="<?php echo esc_attr($button['target'] ?: '_self'); ?>" class="d-none d-lg-inline-block btn btn--primary header"><?php echo esc_html($button['title']); ?></a>
+        <a href="<?php echo esc_url($button['url']); ?>" target="<?php echo esc_attr($button['target'] ?: '_self'); ?>" class="d-none d-xl-inline-block btn btn--primary header"><?php echo esc_html($button['title']); ?></a>
       <?php endif; ?>
 
       <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">

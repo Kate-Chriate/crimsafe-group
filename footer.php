@@ -16,7 +16,7 @@
                 <div class="col-12 col-lg-6 col-xxl-5 ">
                     <h2><?php echo $footer_title; ?></h2>
                     <h4 class="orange mt-3"><?php echo $footer_subtitle; ?></h4>
-                    <?php if(!is_page('contact-us')) { ?><a href="<?php echo $footer_link['url']; ?>" class="btn btn--primary d-inline-block mt-4 mt-lg-5 mb-5 mb-lg-0"><?php echo $footer_link['title']; ?> &nbsp; <?php echo file_get_contents(get_template_directory_uri() . '/lib/images/arrow.svg'); ?></a> <?php } ?>
+                    <?php if(!is_page('contact-us')) { ?><a href="<?php echo $footer_link['url']; ?>" class="btn btn--primary d-inline-block mt-4 mt-lg-5 mb-5 mb-lg-0"><?php echo $footer_link['title']; ?> &nbsp; <?php echo file_get_contents(get_template_directory() . '/lib/images/arrow.svg'); ?></a> <?php } ?>
                 </div>
                 <div class="<?php if(is_page('contact-us')) { echo 'col-12';} else { echo 'd-none d-lg-block';} ?> col-lg-12 col-xxl-6 offset-xxl-1 mt-5 mt-xxl-0">
                         <?php if( have_rows('contact_details', 'option') ): ?>
@@ -37,7 +37,7 @@
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="row pb-5">
+            <div class="row">
                 <div class="col-12 col-lg-6">
                     <div class="social-links d-flex flex-wrap gap-3">
                         <?php if( $facebook ): ?>
@@ -80,9 +80,9 @@
             </div>
         </div>
     </section>
-    <section class="bottom-footer">
+    <section class="bottom-footer pt-5 pb-4">
         <div class="container">
-              <div class="row g-3 pb-3 justify-content-center align-items-end">
+              <div class="row g-3 justify-content-center align-items-end">
                 <div class="col-12 col-lg-6 m-0">
                    <?php wp_nav_menu(array(
                         'theme_location'  => 'footer',

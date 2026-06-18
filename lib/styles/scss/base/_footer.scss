@@ -63,6 +63,7 @@ ul#menu-footer-menu{
 }
 
 .bottom-footer{
+    background-color:#121824;
     p, a{
         font-size:0.9em;
         @include media-breakpoint-down(md) {
@@ -74,7 +75,7 @@ ul#menu-footer-menu{
 .footer-logos{
     .logo-item{
         img{
-            max-height: 50px;
+            max-height: 58px;
             width:auto;
             @include media-breakpoint-down(md) {
                 max-height: 40px;

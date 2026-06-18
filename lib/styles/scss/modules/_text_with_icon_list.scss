@@ -21,7 +21,7 @@
 }
 
 .text-icon-list__item{
-    padding:2em 0;
+    padding:1.5em 0;
     row-gap:3.8em;
     &:first-of-type{
         padding-top:0;
@@ -30,7 +30,7 @@
         width:60px;
     }
      @include media-breakpoint-up(lg) {
-        padding:4em 0;
+        padding:2em 0;
         border-bottom:1px solid $grey;
      }
 }

@@ -68,35 +68,3 @@
         }
     }
 }
-
-// Desktop: restore 2-column grid layout (override Splide CDN stylesheet)
-.two-col-feature-splide {
-    // Equal height cards in slider mode
-    .splide__list {
-        align-items: stretch;
-    }
-
-    .splide__slide {
-        height: auto !important;
-        display: flex;
-    }
-
-    @include media-breakpoint-up(xl) {
-        .splide__track {
-            overflow: visible;
-        }
-
-        .splide__list {
-            //display: flex;
-            //flex-wrap: wrap;
-            gap: 1.5rem;
-            align-items: stretch;
-        }
-
-        .splide__slide {
-            flex: 1 1 0;
-            min-width: 0;
-            width: auto !important;
-        }
-    }
-}
