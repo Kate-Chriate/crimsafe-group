@@ -1,5 +1,12 @@
 .text-module__logo{
-    img{
-        max-height:110px;
+    &:not(.autoheight){
+        img{
+            max-height:110px;
+        }
+    }
+    &.autoheight{
+        img{
+            max-height:none !important;
+        }
     }
 }

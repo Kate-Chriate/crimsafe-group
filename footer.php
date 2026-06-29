@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-12 col-lg-6 mt-5 mt-lg-0">
                     <?php if( have_rows('footer_logos', 'option') ): ?>
-                        <div class="footer-logos d-flex flex-wrap justify-content-lg-end gap-4">
+                        <div class="footer-logos d-flex flex-wrap justify-content-end gap-4">
                             <?php while( have_rows('footer_logos', 'option') ): the_row(); ?>
                             <?php
                                 $logo = get_sub_field('logo'); ?>
